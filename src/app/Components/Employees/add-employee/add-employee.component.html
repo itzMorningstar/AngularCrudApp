@@ -1,0 +1,46 @@
+
+<div class="container my-5">
+
+    <h1>Add an Employee</h1>
+    <div class="modal-body">
+      
+        <form #form="ngForm" (ngSubmit)="addEmployee()">
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.FirstName" name="firstName">
+          </div>
+      
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.LastName" name="lastName">
+          </div>
+      
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" [(ngModel)]="employee.Age" name="age">
+          </div>
+      
+          <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <select class="form-select"  [(ngModel)]="selectedDepartment" name="department">
+                <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+              </select>          </div>
+      
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" id="gender" [(ngModel)]="employee.Gender" name="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+      
+          <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="text" class="form-control" id="salary" [(ngModel)]="employee.SalleryAmount" name="salary">
+          </div>
+
+          <button class="btn btn-primary">Add</button>
+        </form>
+      </div>
+      
+</div>
