@@ -15,6 +15,7 @@ export class EmployeesService {
   getEmployeePath : string = "api/Employees/getemployees"
   addEmployeePath : string = "api/Employees/addemployee"
   FindEmployeePath : string = "api/Employees/"
+  deleteEmployeePath : string = "api/Employees/"
   constructor(private http: HttpClient) { 
 
   }
@@ -34,5 +35,10 @@ export class EmployeesService {
   getEmployeeById(employeeId : number){
     const headers = new HttpHeaders().set("x-api-key",this.xApiKey);
     return this.http.get<ResponseModel>(this.baseApiUrl +this.FindEmployeePath +employeeId,{headers} )
+  }
+
+  deleteEmployeeById(employeeId : number){
+    const headers =  new HttpHeaders().set("x-api-key",this.xApiKey);
+    return this.http.delete<ResponseModel>(this.baseApiUrl+this.deleteEmployeePath + employeeId,{headers});
   }
 }
