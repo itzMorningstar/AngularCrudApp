@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from './Services/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularCrudApp';
+
+  /**
+   *
+   */
+  constructor(private authService : AuthServiceService) {
+    
+  }
+  logout(){
+this.authService.logout();
+  }
 }
