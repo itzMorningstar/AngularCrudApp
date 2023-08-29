@@ -9,7 +9,17 @@
         <a class="nav-link active" aria-current="page" routerLink="employees">Employees</a>
         <a class="nav-link active" aria-current="page" routerLink="employee/add">Add Employees</a>
         <a class="nav-link " (click)="logout()">Logout</a>
-
+        <ng-container *ngIf="!isLoggedIn; else loggedInNav">
+          <a class="nav-link active" aria-current="page" routerLink="login">Login</a>
+        </ng-container>
+      
+        <!-- Display username if logged in -->
+        <ng-template #loggedInNav>
+          <div class="nav-link active">
+            Welcome, {{ username }}
+            <a (click)="logout()" class="logout-button">Logout</a>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>
